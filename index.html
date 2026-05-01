@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>年齢確認</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:#0e0e0e;color:#d0d0d0;
+    font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans',sans-serif;
+    min-height:100vh;display:flex;align-items:center;justify-content:center;
+    padding:24px;
+  }
+  .card{
+    max-width:400px;width:100%;
+    border:1px solid #2a2a2a;border-radius:16px;
+    padding:40px 32px;text-align:center;
+    background:#141414;
+  }
+  .icon{font-size:36px;margin-bottom:20px}
+  h1{font-size:17px;font-weight:700;color:#fff;margin-bottom:16px;letter-spacing:.04em}
+  p{font-size:13px;line-height:1.9;color:#999;margin-bottom:28px}
+  .btn-yes{
+    display:block;width:100%;
+    background:#e91e8c;color:#fff;border:0;
+    padding:15px;border-radius:10px;
+    font-size:15px;font-weight:700;cursor:pointer;
+    margin-bottom:12px;letter-spacing:.03em;
+  }
+  .btn-no{
+    display:block;width:100%;
+    background:transparent;color:#555;
+    border:1px solid #2a2a2a;
+    padding:13px;border-radius:10px;
+    font-size:13px;text-decoration:none;
+  }
+  .note{font-size:11px;color:#444;margin-top:24px;line-height:1.7}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="icon">🔞</div>
+  <h1>年齢確認</h1>
+  <p>
+    このリンクの先は、成人向けコンテンツを含むサイトです。<br>
+    日本の法律に基づき、18歳未満の方の閲覧はお断りしています。
+  </p>
+  <button class="btn-yes" id="yes">18歳以上です。続ける</button>
+  <a class="btn-no" href="https://www.google.com/">18歳未満です。戻る</a>
+  <p class="note">
+    「続ける」を押すことで、あなたが18歳以上であることを確認したものとみなします。
+  </p>
+</div>
+<script>
+(function(){
+  var DEST = 'https://doujinnorakuen.com/';
+  var KEY  = 'age_ok_dnr';
+  if (localStorage.getItem(KEY) === '1') {
+    location.replace(DEST);
+    return;
+  }
+  document.getElementById('yes').addEventListener('click', function(){
+    localStorage.setItem(KEY, '1');
+    location.replace(DEST);
+  });
+})();
+</script>
+</body>
+</html>
